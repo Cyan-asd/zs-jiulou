@@ -18,8 +18,12 @@
         <module>sky-server</module>
     </modules>
     <properties>
-        <mybatis.spring>2.2.0</mybatis.spring>
-        <lombok>1.18.20</lombok>
+        <java.version>17</java.version>
+        <maven.compiler.source>${java.version}}</maven.compiler.source>
+        <maven.compiler.target>${java.version}}</maven.compiler.target>
+        <mybatis.spring>2.1.4</mybatis.spring>
+        <mysql.version>8.0.33</mysql.version>
+        <lombok>1.18.32</lombok>
         <fastjson>1.2.76</fastjson>
         <commons.lang>2.6</commons.lang>
         <druid>1.2.1</druid>
@@ -30,6 +34,7 @@
         <jjwt>0.9.1</jjwt>
         <jaxb-api>2.3.1</jaxb-api>
         <poi>3.16</poi>
+        <servlet.version>3.0.1</servlet.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -37,6 +42,13 @@
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis.spring}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${servlet.version}</version> <!-- 选择适合你项目的版本 -->
+                <scope>provided</scope>
             </dependency>
 
             <dependency>
@@ -121,6 +133,11 @@
                 <groupId>com.github.wechatpay-apiv3</groupId>
                 <artifactId>wechatpay-apache-httpclient</artifactId>
                 <version>0.4.8</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version> <!-- 根据需要调整版本号 -->
             </dependency>
         </dependencies>
     </dependencyManagement>
