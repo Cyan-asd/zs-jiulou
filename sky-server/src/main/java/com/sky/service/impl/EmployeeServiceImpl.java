@@ -81,14 +81,14 @@ public class EmployeeServiceImpl implements EmployeeService {
         employee.setStatus(StatusConstant.ENABLE);
         //设置密码  默认密码
         employee.setPassword(DigestUtils.md5DigestAsHex(PasswordConstant.DEFAULT_PASSWORD.getBytes()));
-        //创建时间和修改时间
+        /*//创建时间和修改时间
         employee.setCreateTime(LocalDateTime.now());
         employee.setUpdateTime(LocalDateTime.now());
 
         //设置创建人ID
         //TODO 需要改为当前登录用户ID
         employee.setCreateUser(BaseContext.getCurrentId());
-        employee.setUpdateUser(BaseContext.getCurrentId());
+        employee.setUpdateUser(BaseContext.getCurrentId());*/
         employeeMapper.insert(employee);
     }
 
@@ -124,6 +124,38 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 
         //传入实体类方便别的也传入实体类修改 复用性强
+        employeeMapper.update(employee);
+
+    }
+
+    /**
+     * @param id
+     * @return
+     */
+    @Override
+    public Employee getById(Long id) {
+
+        Employee employee = employeeMapper.getById(id);
+        employee.setPassword("******");
+
+        return employee;
+    }
+
+    /**
+     * @param employeeDTO
+     */
+    @Override
+    public void update(EmployeeDTO employeeDTO) {
+
+        Employee employee = new Employee();
+        //对象属性拷贝
+        BeanUtils.copyProperties(employeeDTO, employee);
+
+        /*employee.builder()
+                .updateTime(LocalDateTime.now())
+                .updateUser(BaseContext.getCurrentId())
+                .build();*/
+
         employeeMapper.update(employee);
 
     }
