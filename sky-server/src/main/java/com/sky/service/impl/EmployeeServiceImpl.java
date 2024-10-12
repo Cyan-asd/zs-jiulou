@@ -109,5 +109,24 @@ public class EmployeeServiceImpl implements EmployeeService {
         return new PageResult(total,records);
     }
 
+    /**
+     * @param status
+     * @param id
+     */
+    @Override
+    public void startOrStop(Integer status, Long id) {
+
+        //lombok builder 设置参数
+        Employee employee = new Employee().builder()
+                        .id(id)
+                        .status(status)
+                        .build();
+
+
+        //传入实体类方便别的也传入实体类修改 复用性强
+        employeeMapper.update(employee);
+
+    }
+
 
 }
