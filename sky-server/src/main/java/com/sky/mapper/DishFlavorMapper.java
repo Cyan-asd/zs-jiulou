@@ -7,6 +7,8 @@ import com.sky.enumeration.OperationType;
 import com.sky.vo.DishVO;
 import org.apache.ibatis.annotations.Mapper;
 import com.github.pagehelper.Page;
+import org.apache.ibatis.annotations.Select;
+
 import java.util.List;
 
 /**
@@ -20,4 +22,7 @@ public interface DishFlavorMapper {
     public void insertBatch(List<DishFlavor> flavors);
 
     Page<DishVO> select(Dish dish);
+
+    @Select("select * from dish_flavor where id =#{id}")
+    List<DishFlavor> getByDishId(Long id);
 }
