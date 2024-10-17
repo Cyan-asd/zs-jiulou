@@ -126,5 +126,5 @@ public class OrderController {
     public Result complete(@PathVariable("id") Long id) {
         orderService.complete(id);
         return Result.success();
-    }
+    } 
 }
