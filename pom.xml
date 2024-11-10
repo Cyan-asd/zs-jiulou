@@ -9,13 +9,13 @@
         <version>2.7.3</version>
     </parent>
     <groupId>com.sky</groupId>
-    <artifactId>sky-take-out</artifactId>
+    <artifactId>zs-take-out</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>sky-common</module>
-        <module>sky-pojo</module>
-        <module>sky-server</module>
+        <module>zs-common</module>
+        <module>zs-pojo</module>
+        <module>zs-server</module>
     </modules>
     <properties>
         <java.version>17</java.version>
